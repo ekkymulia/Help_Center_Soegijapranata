@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AkunCsController;
 use App\Http\Controllers\AkunMahasiswaController;
+use App\Http\Controllers\DetailAkunController;
 use App\Http\Controllers\KonfigurasiAiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoutingController;
@@ -30,6 +31,7 @@ require __DIR__ . '/auth.php';
 Route::group(['prefix' => '/', 'middleware'=>'auth'], function () {
     Route::resource("akun-cs", AkunCsController::class);
     Route::resource("akun-mahasiswa", AkunMahasiswaController::class);
+    Route::resource("detail-akun", DetailAkunController::class);
     Route::resource("konfigurasi-ai", KonfigurasiAiController::class);
 
     Route::get('', [RoutingController::class, 'index'])->name('root');
