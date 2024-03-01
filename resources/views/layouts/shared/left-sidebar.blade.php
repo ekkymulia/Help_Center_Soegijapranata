@@ -92,7 +92,7 @@
             </li>
 
             <li class="side-nav-item">
-                <a href="" class="side-nav-link">
+                <a href="{{ route('akun-cs.index') }}" class="side-nav-link">
                     <i class="ri-shield-user-line"></i>
                     <span> Akun CS </span>
                 </a>

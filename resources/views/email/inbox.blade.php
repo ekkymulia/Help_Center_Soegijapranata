@@ -149,7 +149,7 @@
                                     <td>Tokyo</td>
                                     <td>63</td>
                                     <td>2011/07/25</td>
-                                    <td><a href="{{ route('detail-akun.index') }}" class="btn btn-primary btn-sm">Detail</a></td>
+                                    <td><a href="{{ route('akun-mahasiswa.edit', 1) }}" class="btn btn-primary btn-sm">Detail</a></td>
                                 </tr>
                                 <tr>
                                     <td>Ashton Cox</td>
@@ -157,7 +157,7 @@
                                     <td>San Francisco</td>
                                     <td>66</td>
                                     <td>2009/01/12</td>
-                                    <td><a href="{{ route('detail-akun.index') }}" class="btn btn-primary btn-sm">Detail</a></td>
+                                    <td><a href="{{ route('akun-mahasiswa.edit', 1) }}" class="btn btn-primary btn-sm">Detail</a></td>
                                 </tr>
                             </tbody>
                         </table>

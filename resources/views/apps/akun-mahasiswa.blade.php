@@ -76,6 +76,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>NIM</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -84,6 +85,7 @@
                                     <th>{{ $m->name }}</th>
                                     <th>{{ $m->email }}</th>
                                     <th>{{ $m->nim }}</th>
+                                    <td><a href="{{ route('second', ['pages', 'profile']) }}" class="btn btn-primary btn-sm">Detail</a></td>
                                 </tr>
                                 @endforeach                              
                             </tbody>
