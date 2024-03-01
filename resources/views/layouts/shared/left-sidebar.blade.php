@@ -92,7 +92,7 @@
             </li>
 
             <li class="side-nav-item">
-                <a href="{{ route('second', ['apps', 'calendar']) }}" class="side-nav-link">
+                <a href="{{ route('akun-cs.index') }}" class="side-nav-link">
                     <i class="ri-shield-user-line"></i>
                     <span> Akun CS </span>
                 </a>
@@ -117,7 +117,7 @@
             </li>-->
 
             <li class="side-nav-item">
-                <a href="{{ route('second', ['apps', 'kanban']) }}" class="side-nav-link">
+                <a href="{{ route('akun-mahasiswa.index') }}" class="side-nav-link">
                     <i class="ri-shield-user-line"></i>
                     <span> Akun Mahasiswa </span>
                 </a>
@@ -265,7 +265,7 @@
             </li> -->
 
             <li class="side-nav-item">
-                <a href="{{ route('second', ['apps', 'file-manager']) }}" class="side-nav-link">
+                <a href="{{ route('konfigurasi-ai.index') }}" class="side-nav-link">
                     <i class="ri-folder-2-line"></i>
                     <span> Konfigurasi AI </span>
                 </a>
