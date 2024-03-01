@@ -28,7 +28,7 @@
                         <li class="breadcrumb-item active">Inbox</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Inbox</h4>
+                <h4 class="page-title">Akun CS</h4>
             </div>
         </div>
     </div>

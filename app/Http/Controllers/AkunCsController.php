@@ -67,7 +67,7 @@ class AkunCsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view("apps.detail-akun");
     }
 
     /**
