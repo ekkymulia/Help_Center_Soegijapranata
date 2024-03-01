@@ -29,7 +29,7 @@ use App\Http\Controllers\RoutingController;
 require __DIR__ . '/auth.php';
 
 Route::group(['prefix' => '/', 'middleware'=>'auth'], function () {
-    Route::resource("aksun-c", AkunCsController::class);
+    Route::resource("akun-cs", AkunCsController::class);
     Route::resource("akun-mahasiswa", AkunMahasiswaController::class);
     Route::resource("detail-akun", DetailAkunController::class);
     Route::resource("konfigurasi-ai", KonfigurasiAiController::class);

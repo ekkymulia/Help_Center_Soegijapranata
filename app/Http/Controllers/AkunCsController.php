@@ -12,13 +12,13 @@ class AkunCsController extends Controller
      */
     public function index()
     {
-        if (session('level') == null) {
-            return view("index");
-        }
+        // if (session('level') == null) {
+        //     return view("index");
+        // }
 
-        if (session('role') == 2) {
-            return view("index");
-        }
+        // if (session('role') == 2) {
+        //     return view("index");
+        // }
     
         if (session('role') == 1) {
             $akun = User::where('role_id', '!=', 2)->get();
