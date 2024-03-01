@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AkunCsController extends Controller
@@ -11,7 +12,30 @@ class AkunCsController extends Controller
      */
     public function index()
     {
-        return view("apps.akun-cs");
+        if (session('level') == null) {
+            return view("index");
+        }
+
+        if (session('role') == 2) {
+            return view("index");
+        }
+    
+        if (session('role') == 1) {
+            $akun = User::where('role_id', '!=', 2)->get();
+            $widget = [
+                $akun->count()
+            ];
+        } else {
+            $akun = User::where('role_id', session('role'))->get();
+            $widget = [
+                $akun->count()
+            ];
+        }
+    
+        return view("apps.akun-cs", [
+            'akun' => $akun,
+            'widget' => $widget
+        ]);
     }
 
     /**

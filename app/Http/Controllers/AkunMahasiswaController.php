@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AkunMahasiswaController extends Controller
@@ -11,7 +12,15 @@ class AkunMahasiswaController extends Controller
      */
     public function index()
     {
-        return view("apps.akun-mahasiswa");
+        $mahasiswa = User::where('role_id', 2)->get();
+        $widget = [
+            $mahasiswa->count(),
+        ];
+
+        return view("apps.akun-mahasiswa", [
+            'mahasiswa' => $mahasiswa,
+            'widget' => $widget
+        ]);
     }
 
     /**
