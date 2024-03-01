@@ -74,37 +74,18 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
-<<<<<<< HEAD
                                     <th>Email</th>
                                     <th>NIM</th>
-=======
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Actions</th>
->>>>>>> d0b6745de274f0e1410cd22f179ffe27787e38c1
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($mahasiswa as $m)
                                 <tr>
-<<<<<<< HEAD
                                     <th>{{ $m->name }}</th>
                                     <th>{{ $m->email }}</th>
                                     <th>{{ $m->nim }}</th>
                                 </tr>
                                 @endforeach                              
-=======
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td><a href="{{ route('akun-mahasiswa.edit', 1) }}" class="btn btn-primary btn-sm">Detail</a></td>
-                                </tr>
-
->>>>>>> d0b6745de274f0e1410cd22f179ffe27787e38c1
                             </tbody>
                         </table>
                     </div> <!-- end card body-->
