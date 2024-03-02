@@ -2,7 +2,7 @@
 <div class="leftside-menu">
 
     <!-- Brand Logo Light -->
-    <a href="{{ route('any', 'index') }}" class="logo logo-light">
+    <a href="{{ route('any', 'analytics') }}" class="logo logo-light">
         <span class="logo-lg">
             <img src="/images/logo.png" alt="logo" width="140" height="125">
         </span>
@@ -12,7 +12,7 @@
     </a>
 
     <!-- Brand Logo Dark -->
-    <a href="{{ route('any', 'index') }}" class="logo logo-dark">
+    <a href="{{ route('any', 'analytics') }}" class="logo logo-dark">
         <span class="logo-lg">
             <img src="/images/logo-dark.png" alt="logo" width="140" height="125">
         </span>
@@ -57,9 +57,9 @@
                         <li>
                             <a href="{{ route('any', 'analytics') }}">Analytics</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="{{ route('any', 'index') }}">Ecommerce</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </li>
@@ -84,9 +84,9 @@
                         <li>
                             <a href="{{ route('second', ['email', 'inbox']) }}">Inbox</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="{{ route('second', ['email', 'read']) }}">Read Email</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </li>

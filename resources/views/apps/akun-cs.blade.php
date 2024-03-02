@@ -23,9 +23,8 @@
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Attex</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Email</a></li>
-                        <li class="breadcrumb-item active">Inbox</li>
+                        <li class="breadcrumb-item"><a href="{{ route('any', 'analytics') }}">Home</a></li>
+                        <li class="breadcrumb-item active">CS</li>
                     </ol>
                 </div>
                 <h4 class="page-title">Akun CS</h4>
@@ -115,14 +114,6 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="header-title">Basic Data Table</h4>
-                        <p class="text-muted fs-14">
-                            DataTables has most features enabled by default, so all you need to do to use it with your
-                            own tables is to call the construction
-                            function:
-                            <code>$().DataTable();</code>. KeyTable provides Excel like cell navigation on any table.
-                            Events (focus, blur, action etc) can be assigned to individual
-                            cells, columns, rows or all cells.
-                        </p>
 
                         <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
