@@ -26,22 +26,14 @@
 
         <div class="row">
             <div class="col-xl-4 col-lg-5">
-                <div class="card text-center">
+                <div class="card">
                     <div class="card-body">
                         <img src="/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
 
                         <h4 class="mb-1 mt-2">Tosha Minner</h4>
                         <p class="text-muted">Founder</p>
 
-                        <button type="button" class="btn btn-success btn-sm mb-2">Follow</button>
-                        <button type="button" class="btn btn-danger btn-sm mb-2">Message</button>
-
-                        <div class="text-start mt-3">
-                            <h4 class="fs-13 text-uppercase">About Me :</h4>
-                            <p class="text-muted mb-3">
-                                Hi I'm Tosha Minner,has been the industry's standard dummy text ever since the
-                                1500s, when an unknown printer took a galley of type.
-                            </p>
+                        <div class="text-start mt-2">
                             <p class="text-muted mb-2"><strong>Full Name :</strong> <span class="ms-2">Tosha K. Minner</span></p>
 
                             <p class="text-muted mb-2"><strong>Mobile :</strong><span class="ms-2">(123)
@@ -52,22 +44,8 @@
                             <p class="text-muted mb-1"><strong>Location :</strong> <span class="ms-2">USA</span></p>
                         </div>
 
-                        <ul class="social-list list-inline mt-3 mb-0">
-                            <li class="list-inline-item">
-                                <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="ri-facebook-circle-fill"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="ri-google-fill"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="ri-twitter-fill"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="ri-github-fill"></i></a>
-                            </li>
-                        </ul>
                     </div> <!-- end card-body -->
-                </div> <!-- end card -->
+                </div> <!-- end card-->
 
                 <!-- Messages-->
                 <div class="card">
@@ -136,18 +114,36 @@
             </div> <!-- end col-->
 
             <div class="col-xl-8 col-lg-7">
-                <!-- Chart-->
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="header-title mb-3">Orders & Revenue</h4>
-                        <div>
-                            <div style="height: 260px;" class="chartjs-chart">
-                                <canvas id="high-performing-product"></canvas>
+            <div class="card text">
+                    <div class="card-body text-center">
+                        <form class="mt-3 text-start">
+                            <div class="mb-1">
+                                <label for="full-name" class="form-label text-center">Full Name:</label>
+                                <input type="text" class="form-control" id="full-name" value="Tosha K. Minner">
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Chart-->
+                            <div class="mb-1">
+                                <label for="mobile" class="form-label text-center">Mobile:</label>
+                                <input type="text" class="form-control" id="mobile" value="(123) 123 1234">
+                            </div>
+                            <div class="mb-1">
+                                <label for="email" class="form-label text-center">Email:</label>
+                                <input type="email" class="form-control" id="email" value="user@email.domain">
+                            </div>
+                            <div class="mb-1">
+                                <label for="location" class="form-label text-center">Location:</label>
+                                <input type="text" class="form-control" id="location" value="USA">
+                            </div>
+                            <div class="mb-3">
+                                <label for="profile-image" class="form-label text-center">Profile Image:</label>
+                                <input type="file" class="form-control" id="profile-image">
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div> <!-- end card-body -->
+
+                </div> <!-- end card -->
 
                 <div class="card">
                     <div class="card-body">

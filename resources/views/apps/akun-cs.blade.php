@@ -131,6 +131,7 @@
                                     <th>Email</th>
                                     <th>Divisi</th>
                                     <th>Jabatan</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -140,6 +141,7 @@
                                     <td>{{ $m->email }}</td>
                                     <td>{{ $m->role->name }}</td>
                                     <td>{{ $m->level == 1 ? 'Pimpinan' : 'Karyawan' }}</td>
+                                    <td><a href="{{ route('second', ['pages', 'profile']) }}" class="btn btn-primary btn-sm">Detail</a></td>
                                 </tr>
                                 @endforeach                              
                             </tbody>
