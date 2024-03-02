@@ -58,24 +58,7 @@
                         <div class="d-grid mb-0 text-center">
                             <button class="btn btn-primary" type="submit"><i class="ri-login-box-line"></i> Log In </button>
                         </div>
-                        <!-- social-->
-                        <div class="text-center mt-4">
-                            <p class="text-muted fs-16">Sign in with</p>
-                            <ul class="social-list list-inline mt-3">
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="ri-facebook-circle-fill"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="ri-google-fill"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="ri-twitter-fill"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="ri-github-fill"></i></a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                     </form>
                     <!-- end form-->
                 </div>
@@ -90,37 +73,8 @@
         <!-- end auth-fluid-form-box-->
 
         <!-- Auth fluid right content -->
-        <div class="auth-fluid-right text-center">
-            <div class="auth-user-testimonial">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <h2 class="mb-3">I love the color!</h2>
-                            <p class="lead"><i class="ri-double-quotes-l"></i> Everything you need is in this template. Love the overall look and feel. Not too flashy, and still very professional and smart.
-                            </p>
-                            <p>
-                                - Admin User
-                            </p>
-                        </div>
-                        <div class="carousel-item">
-                            <h2 class="mb-3">Flexibility !</h2>
-                            <p class="lead"><i class="ri-double-quotes-l"></i> Pretty nice theme, hoping you guys could add more features to this. Keep up the good work.
-                            </p>
-                            <p>
-                                - Admin User
-                            </p>
-                        </div>
-                        <div class="carousel-item">
-                            <h2 class="mb-3">Feature Availability!</h2>
-                            <p class="lead"><i class="ri-double-quotes-l"></i> This is a great product, helped us a lot and very quick to work with and implement.
-                            </p>
-                            <p>
-                                - Admin User
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end auth-user-testimonial-->
+        <div class="auth-fluid-right text-center" style="background-image: url('/images/bg-auth.jpg');">
+        
         </div>
         <!-- end Auth fluid right content -->
     </div>
