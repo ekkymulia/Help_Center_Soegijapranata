@@ -114,16 +114,6 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">Basic Data Table</h4>
-                        <p class="text-muted fs-14">
-                            DataTables has most features enabled by default, so all you need to do to use it with your
-                            own tables is to call the construction
-                            function:
-                            <code>$().DataTable();</code>. KeyTable provides Excel like cell navigation on any table.
-                            Events (focus, blur, action etc) can be assigned to individual
-                            cells, columns, rows or all cells.
-                        </p>
-
                         <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                                 <tr>
@@ -141,7 +131,7 @@
                                     <td>{{ $m->email }}</td>
                                     <td>{{ $m->role->name }}</td>
                                     <td>{{ $m->level == 1 ? 'Pimpinan' : 'Karyawan' }}</td>
-                                    <td><a href="{{ route('second', ['pages', 'profile']) }}" class="btn btn-primary btn-sm">Detail</a></td>
+                                    <td><a href="{{ route('akun-mahasiswa.edit', $m->id) }}" class="btn btn-primary btn-sm">Detail</a></td>
                                 </tr>
                                 @endforeach                              
                             </tbody>

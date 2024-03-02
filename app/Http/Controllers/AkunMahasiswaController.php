@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class AkunMahasiswaController extends Controller
 {
@@ -28,7 +31,7 @@ class AkunMahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view("apps.detail-akun");
     }
 
     /**
@@ -36,7 +39,33 @@ class AkunMahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validatedData = $request->validate([
+                'name' => 'required|string',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|min:6',
+                'nim' => 'required|string|unique:users,nim',
+                'level' => 'nullable|sometimes|integer',
+                'role' => 'sometimes|integer'
+            ]);
+
+            $user = User::create([
+                'name' => $validatedData['name'],
+                'email' => $validatedData['email'],
+                'password' => Hash::make($validatedData['password']),
+                'level' => null,
+                'role_id' => session('role') == 1 ? $validatedData['role'] : 2,
+                'nim' => $validatedData['nim'],
+            ]);
+
+            $user->save();
+
+            return redirect()->route('akun-mahasiswa.index')->with('success', 'Akun Mahasiswa baru telah dibuat.');
+        } catch (ValidationException $e) {
+            return back()->withErrors($e->errors())->withInput();
+        } catch (\Exception $e) {
+            return back()->with('error', 'An error occurred.');
+        }
     }
 
     /**
@@ -52,7 +81,12 @@ class AkunMahasiswaController extends Controller
      */
     public function edit(string $id)
     {
-        return view("apps.detail-akun");
+        $akun = User::find($id);
+        $role = Role::all();
+        return view("apps.detail-akun", [
+            'akun' => $akun,
+            'role' => $role
+        ]);
     }
 
     /**
@@ -60,7 +94,43 @@ class AkunMahasiswaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $validatedData = $request->validate([
+                'name' => 'nullable|string',
+                'email' => 'nullable|email',
+                'password' => 'nullable|min:6',
+                'nim' => 'nullable|sometimes|string',
+                'level' => 'nullable|sometimes|integer',
+                'role' => 'sometimes|integer'
+            ]);
+
+            $user = User::find($id);
+
+            if($user == null){
+                return back()->with('error', 'An error occurred.');
+            }
+
+            $userData = [
+                'name' => $validatedData['name'],
+                'email' => $validatedData['email'],
+                'level' => null,
+                'role_id' => session('role') == 1 ? $validatedData['role'] : 2,
+                'nim' => $validatedData['nim'],
+            ];
+    
+            if (isset($validatedData['password'])) {
+                $userData['password'] = Hash::make($validatedData['password']);
+            }
+    
+            $user->update($userData);
+
+            return redirect()->route('akun-mahasiswa.index')->with('success', 'Akun Mahasiswa berhasil diedit.');
+        } catch (ValidationException $e) {
+            dd($e->errors());
+            return back()->withErrors($e->errors())->withInput();
+        } catch (\Exception $e) {
+            return back()->with('error', 'An error occurred.');
+        }
     }
 
     /**
@@ -68,6 +138,14 @@ class AkunMahasiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::find($id);
+
+        if($user == null){
+            return back()->with('error', 'An error occurred.');
+        }
+
+        $user->delete();
+
+        return redirect()->route('akun-mahasiswa.index')->with('success', 'Akun Mahasiswa berhasil dihapus.');
     }
 }
