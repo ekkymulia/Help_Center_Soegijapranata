@@ -50,7 +50,18 @@
                     </li>
                 </ul>
                 <div class="navbar-button">
-                    <a href="" class="btn btn-sm btn-custom btn-round">Login</a>
+                    <a href="{{ route('login') }}" class="btn btn-sm btn-custom btn-round">Login</a>
+                    <style>
+                        .btn-custom {
+                            background-color: #490251;
+                            color: #ffffff;
+                        }
+
+                        .btn-custom:hover {
+                            background-color: #5c0366 !important; 
+                            border-color: #5c0366 !important;
+                        }
+                    </style>
                 </div>
 
             </div>
@@ -67,9 +78,10 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
                             <div class="text-center">
-                                <h1 class="home-title-2 mt-5 pt-5">Help Center</h1>
+                                <h1 class="home-title-2 mt-5 pt-5">Selamat Datang di Help Center </h1>
+                                <h2 class="home-title-2">Soegijapranata Catholic University</h2>
                                 <div class="button mt-4">
-                                    <a href="halaman-tujuan.html" class="btn btn-outline btn-round mt-3">Tanya Sekarang <i class="mdi mdi-arrow-right"></i></a>
+                                    <a href="{{route('login')}}" class="btn btn-outline btn-round mt-3">Tanya Sekarang <i class="mdi mdi-arrow-right"></i></a>
                                 </div>                                
 
                                <div class="home-img-2">

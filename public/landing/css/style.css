@@ -415,7 +415,8 @@ p {
 }
 
 .bg-home-2 {
-  background: linear-gradient(to right, #490251, #3e0b91);
+  /* background: linear-gradient(to right, #490251, #3e0b91); */
+  background: linear-gradient(to top, rgba(73, 2, 81, 1), rgba(62, 11, 145, 1));
   background-size: cover;
   padding-top: 100px;
   position: relative;
