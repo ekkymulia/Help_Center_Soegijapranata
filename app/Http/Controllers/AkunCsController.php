@@ -15,7 +15,12 @@ class AkunCsController extends Controller
      */
     public function index()
     {
-        $akun = User::where('role_id', '>', 2)->get();
+        if(session('role') == 1){
+            $akun = User::where('role_id', '>', 2)->get();
+        }else if(session('role') > 2){
+            $akun = User::where('role_id', session('role'))->get();
+        }
+
         $widget = [
             $akun->count(),
         ];

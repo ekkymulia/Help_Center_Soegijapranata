@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AkunCsController;
 use App\Http\Controllers\AkunMahasiswaController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\DetailAkunController;
 use App\Http\Controllers\KonfigurasiAiController;
+use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoutingController;
 
@@ -33,6 +35,11 @@ Route::group(['prefix' => '/', 'middleware'=>'auth'], function () {
     Route::resource("akun-mahasiswa", AkunMahasiswaController::class);
     Route::resource("detail-akun", DetailAkunController::class);
     Route::resource("konfigurasi-ai", KonfigurasiAiController::class);
+    Route::resource("pengaduan", LaporanController::class);
+    Route::resource('message-history', ChatController::class);
+
+    Route::post('takeover/{id}', [LaporanController::class, 'takeover'])->name('takeover');
+    Route::get('akhiripeng/{id}', [LaporanController::class, 'akhiripeng'])->name('akhiripeng');
 
     Route::get('', [RoutingController::class, 'index'])->name('root');
     Route::get('/home', fn()=>view('index'))->name('home');

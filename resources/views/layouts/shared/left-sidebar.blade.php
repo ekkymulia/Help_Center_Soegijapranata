@@ -82,7 +82,7 @@
                 <div class="collapse" id="sidebarEmail">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="{{ route('second', ['email', 'inbox']) }}">Inbox</a>
+                            <a href="{{ route('pengaduan.index') }}">Semua Laporan</a>
                         </li>
                         <!-- <li>
                             <a href="{{ route('second', ['email', 'read']) }}">Read Email</a>
