@@ -39,13 +39,15 @@
                         <input type="text" class="form-control" name="judul" placeholder="Masukan Pengaduanmu" id="newpeng">
                         @endif
 
-                        @if(isset($laporan) && $laporan->takeover_id == null)
-                            <button type="button" id="takeover" onclick="takeover('{{ isset($laporan) ? $laporan->id : '' }}')" class="btn btn-success btn-sm mb-2">Takeover</button>
-                        @endif
-                        @if(isset($laporan) && $laporan->is_active == 1)
-                            <button type="button" id="akhiripeng" onclick="akhiripeng('{{ isset($laporan) ? $laporan->id : '' }}')" class="btn btn-danger btn-sm mb-2">Akhiri Pengaduan</button>
-                        @elseif(isset($laporan) && $laporan->is_active == 0)
-                            <button type="button"  id="akhiripeng" onclick="akhiripeng('{{ isset($laporan) ? $laporan->id : '' }}')" class="btn btn-success btn-sm mb-2">Buka Konversasi</button>
+                        @if(session('role') != 2)
+                            @if(isset($laporan) && $laporan->takeover_id == null)
+                                <button type="button" id="takeover" onclick="takeover('{{ isset($laporan) ? $laporan->id : '' }}')" class="btn btn-success btn-sm mb-2">Takeover</button>
+                            @endif
+                            @if(isset($laporan) && $laporan->is_active == 1)
+                                <button type="button" id="akhiripeng" onclick="akhiripeng('{{ isset($laporan) ? $laporan->id : '' }}')" class="btn btn-danger btn-sm mb-2">Akhiri Pengaduan</button>
+                            @elseif(isset($laporan) && $laporan->is_active == 0)
+                                <button type="button"  id="akhiripeng" onclick="akhiripeng('{{ isset($laporan) ? $laporan->id : '' }}')" class="btn btn-success btn-sm mb-2">Buka Konversasi</button>
+                            @endif
                         @endif
 
                         <div class="text-start mt-3">
@@ -276,7 +278,7 @@
                 //     <li class="clearfix">
                 //         <div class="conversation-text">
                 //             <div class="ctext-wrap">
-                //                 <i>Chatbot</i>
+                //                 <i>Chatbot - Chatbot</i>
                 //                 <p>Halo, Salam Cinta Kasih {{ ucfirst(session('user_name')) }}. Terima Kasih karena sudah melapor, Laporan kamu tentang ${judul} sudah kami terima, sementara itu biarkan saya bantu kamu dulu ya!</p>
                 //             </div>
                 //         </div>
@@ -284,7 +286,7 @@
                 //     <li class="clearfix">
                 //         <div class="conversation-text">
                 //             <div class="ctext-wrap">
-                //                 <i>Chatbot</i>
+                //                 <i>Chatbot - Chatbot</i>
                 //                 <p>Apakah boleh diceritakan lebih lanjut tentang permasalahan yang kamu hadapi?</p>
                 //             </div>
                 //         </div>
@@ -313,7 +315,7 @@
                     <li class="clearfix">
                         <div class="conversation-text">
                             <div class="ctext-wrap">
-                                <i>Chatbot</i>
+                                <i>Chatbot - Chatbot</i>
                                 <p>Halo, Salam Cinta Kasih {{ ucfirst(session('user_name')) }}. Terima Kasih karena sudah melapor, Laporan kamu tentang {{ isset($laporan) ? $laporan->judul : ''}} sudah kami terima, sementara itu biarkan saya bantu kamu dulu ya!</p>
                             </div>
                         </div>
@@ -321,7 +323,7 @@
                     <li class="clearfix">
                         <div class="conversation-text">
                             <div class="ctext-wrap">
-                                <i>Chatbot</i>
+                                <i>Chatbot - Chatbot</i>
                                 <p>Apakah boleh diceritakan lebih lanjut tentang permasalahan yang kamu hadapi?</p>
                             </div>
                         </div>
@@ -342,7 +344,7 @@
                         <li class="clearfix">
                             <div class="conversation-text">
                                 <div class="ctext-wrap">
-                                    <i>Chatbot</i>
+                                    <i>Chatbot - Chatbot</i>
                                     <p>Halo, Salam Cinta Kasih {{ ucfirst(session('user_name')) }}. Terima Kasih karena sudah melapor, Laporan kamu tentang {{ isset($laporan) ? $laporan->judul : ''}} sudah kami terima, sementara itu biarkan saya bantu kamu dulu ya!</p>
                                 </div>
                             </div>
@@ -350,7 +352,7 @@
                         <li class="clearfix">
                             <div class="conversation-text">
                                 <div class="ctext-wrap">
-                                    <i>Chatbot</i>
+                                    <i>Chatbot - Chatbot</i>
                                     <p>Apakah boleh diceritakan lebih lanjut tentang permasalahan yang kamu hadapi?</p>
                                 </div>
                             </div>
@@ -362,7 +364,7 @@
                     <li class="${liClass}">
                         <div class="conversation-text">
                             <div class="ctext-wrap">
-                                <i>${message.sender.name}</i>
+                                <i>${message.sender.name} - ${message.sender.role.name}</i>
                                 <p>${message.chat}</p>
                             </div>
                         </div>

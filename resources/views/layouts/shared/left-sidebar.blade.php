@@ -91,12 +91,14 @@
                 </div>
             </li>
 
+            @if(session('role') == 1 || session('role') > 2)
             <li class="side-nav-item">
                 <a href="{{ route('akun-cs.index') }}" class="side-nav-link">
                     <i class="ri-shield-user-line"></i>
                     <span> Akun CS </span>
                 </a>
             </li>
+            @endif
 
             <!-- <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarTasks" aria-expanded="false" aria-controls="sidebarTasks" class="side-nav-link">
@@ -116,12 +118,14 @@
                 </div>
             </li>-->
 
+            @if(session('role') == 1)
             <li class="side-nav-item">
                 <a href="{{ route('akun-mahasiswa.index') }}" class="side-nav-link">
                     <i class="ri-shield-user-line"></i>
                     <span> Akun Mahasiswa </span>
                 </a>
             </li> 
+            @endif
 
             <!--<li class="side-nav-item">
                 <a href="{{ route('second', ['apps', 'file-manager']) }}" class="side-nav-link">
@@ -264,12 +268,14 @@
                 </div>
             </li> -->
 
+            @if(session('role') == 1)
             <li class="side-nav-item">
                 <a href="{{ route('konfigurasi-ai.index') }}" class="side-nav-link">
                     <i class="ri-folder-2-line"></i>
                     <span> Konfigurasi AI </span>
                 </a>
             </li>
+            @endif
 
             <!-- <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarPagesError" aria-expanded="false" aria-controls="sidebarPagesError" class="side-nav-link">

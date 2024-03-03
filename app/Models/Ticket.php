@@ -38,6 +38,6 @@ class Ticket extends Model
     }
 
     public function takeover(){
-        return $this->belongsTo(User::class, 'takeover_id');
+        return $this->belongsTo(Role::class, 'takeover_id');
     }
 }

@@ -20,7 +20,7 @@ class LaporanController extends Controller
         if(session('role') == 1){
             $data = Ticket::all();
         } else if(session('role') == 2){
-            $data = Ticket::where('sender_id', session('user_id'))->get();
+            $data = Ticket::where('user_id', session('user_id'))->get();
         } else if(session('role') > 2){
             $role = session('role');
 

@@ -69,20 +69,20 @@
             <li class="dropdown">
                 <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <span class="account-user-avatar">
-                        <img src="/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
+                        <!-- <img src="/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle"> -->
                     </span>
                     <span class="d-lg-flex flex-column gap-1 d-none">
                         <h5 class="my-0">
                             {{ auth()->user()->name }}
                         </h5>
-                        <h6 class="my-0 fw-normal">Founder</h6>
+                        <h6 class="my-0 fw-normal">Akun {{ session("role_name") }}</h6>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
                     <!-- item-->
-                    <div class=" dropdown-header noti-title">
+                    <!-- <div class=" dropdown-header noti-title">
                         <h6 class="text-overflow m-0">Welcome !</h6>
-                    </div>
+                    </div> -->
 
                     <!-- item-->
                     <a href="{{ route('second', ['pages', 'profile']) }}" class="dropdown-item">
@@ -90,23 +90,20 @@
                         <span>My Account</span>
                     </a>
 
-                    <!-- item-->
-                    <a href="{{ route('second', ['pages', 'profile']) }}" class="dropdown-item">
+                    <!-- <a href="{{ route('second', ['pages', 'profile']) }}" class="dropdown-item">
                         <i class="ri-settings-4-line fs-18 align-middle me-1"></i>
                         <span>Settings</span>
                     </a>
 
-                    <!-- item-->
                     <a href="{{ route('second', ['pages', 'faq']) }}" class="dropdown-item">
                         <i class="ri-customer-service-2-line fs-18 align-middle me-1"></i>
                         <span>Support</span>
                     </a>
 
-                    <!-- item-->
                     <a href="{{ route('second', ['auth', 'lock-screen']) }}" class="dropdown-item">
                         <i class="ri-lock-password-line fs-18 align-middle me-1"></i>
                         <span>Lock Screen</span>
-                    </a>
+                    </a> -->
 
                     <!-- item-->
                     <form method="POST" action="{{ route('logout') }}">

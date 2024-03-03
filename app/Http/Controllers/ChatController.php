@@ -45,7 +45,7 @@ class ChatController extends Controller
 
         $tiket = Ticket::with('topik')->find($validatedData['tiket_id']);
 
-        if($tiket->takeover_id != null){
+        if($tiket->takeover_id == null){
             try{
                 $response = Http::post(env('AI_API_LINK', null), [
                     'sessionKey' => $tiket->chat_api_id,
@@ -84,7 +84,7 @@ class ChatController extends Controller
      */
     public function show(string $id)
     {
-        $message = MessageHistory::where('tiket_id', $id)->with('sender')->get();
+        $message = MessageHistory::where('tiket_id', $id)->with(['sender', 'sender.role'])->get();
 
         return response()->json($message);
     }
