@@ -36,7 +36,10 @@ class AkunCsController extends Controller
      */
     public function create()
     {
-        return view("apps.detail-akun");
+        return view("apps.detail-akun", [
+            'role' => Role::all(),
+            'nt' => 'cs'
+        ]);
     }
 
     /**
@@ -94,7 +97,8 @@ class AkunCsController extends Controller
         $role = Role::all();
         return view("apps.detail-akun", [
             'akun' => $akun,
-            'role' => $role
+            'role' => $role,
+            'nt' => 'cs'
         ]);
     }
 

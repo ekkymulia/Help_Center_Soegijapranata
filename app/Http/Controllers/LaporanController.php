@@ -28,13 +28,16 @@ class LaporanController extends Controller
                 $query->where('cs_assigned', $role);
             })->get();
         }
-        $data = Ticket::all();
         $widget = [
             $data->count(),
+            $data->where('status_layanan', 'diproses')->count(),
+            $data->where('status_layanan', 'ditutup')->count(),
+            $data->where('takeover_id', null)->count()
         ];
 
         return view("apps.data-laporan", [
-            'data' => $data
+            'data' => $data,
+            'widget' => $widget
         ]);
     }
 

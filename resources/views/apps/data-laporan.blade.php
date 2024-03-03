@@ -22,7 +22,7 @@
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('any', 'analytics') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">Pengaduan</li>
                     </ol>
                 </div>
@@ -39,7 +39,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h4 class="mb-0" id="total_laporan">0</h4>
+                                <h4 class="mb-0" id="total_laporan">{{ $widget[0] }}</h4>
                                 <p class="text-muted text-truncate mb-0 mt-2">Total Pengaduan</p>
                             </div>
                             <div class="avatar-sm">
@@ -57,8 +57,8 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h4 class="mb-0" id="laporan_selesai">0</h4>
-                                <p class="text-muted text-truncate mb-0 mt-2">Pengaduan Selesai</p>
+                                <h4 class="mb-0" id="laporan_selesai">{{ $widget[1] }}</h4>
+                                <p class="text-muted text-truncate mb-0 mt-2">Sedang Ditangani</p>
                             </div>
                             <div class="avatar-sm">
                                 <div class="avatar-title rounded bg-soft-primary">
@@ -75,8 +75,8 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h4 class="mb-0" id="sedang_ditangani">0</h4>
-                                <p class="text-muted text-truncate mb-0 mt-2">Sedang Ditangani</p>
+                                <h4 class="mb-0" id="sedang_ditangani">{{ $widget[2] }}</h4>
+                                <p class="text-muted text-truncate mb-0 mt-2">Pengaduan Selesai</p>
                             </div>
                             <div class="avatar-sm">
                                 <div class="avatar-title rounded bg-soft-primary">
@@ -93,8 +93,8 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h4 class="mb-0" id="belum_ditangani">0</h4>
-                                <p class="text-muted text-truncate mb-0 mt-2">Belum Ditangani</p>
+                                <h4 class="mb-0" id="belum_ditangani">{{ $widget[3] }}</h4>
+                                <p class="text-muted text-truncate mb-0 mt-2">Ditangani AI</p>
                             </div>
                             <div class="avatar-sm">
                                 <div class="avatar-title rounded bg-soft-primary">

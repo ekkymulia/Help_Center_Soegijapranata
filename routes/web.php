@@ -3,6 +3,7 @@
 use App\Http\Controllers\AkunCsController;
 use App\Http\Controllers\AkunMahasiswaController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailAkunController;
 use App\Http\Controllers\KonfigurasiAiController;
 use App\Http\Controllers\LaporanController;
@@ -41,11 +42,12 @@ Route::group(['prefix' => '/', 'middleware'=>'auth'], function () {
     Route::post('takeover/{id}', [LaporanController::class, 'takeover'])->name('takeover');
     Route::get('akhiripeng/{id}', [LaporanController::class, 'akhiripeng'])->name('akhiripeng');
 
-    Route::get('', [RoutingController::class, 'index'])->name('root');
-    Route::get('/home', fn()=>view('index'))->name('home');
-    Route::get('{first}/{second}/{third}', [RoutingController::class, 'thirdLevel'])->name('third');
-    Route::get('{first}/{second}', [RoutingController::class, 'secondLevel'])->name('second');
-    Route::get('{any}', [RoutingController::class, 'root'])->name('any');
+    Route::get('', [DashboardController::class, 'index'])->name('root');
+    Route::get('home', [DashboardController::class, 'index'])->name('home');
+    // Route::get('/home', fn()=>view('index'))->name('home');
+    // Route::get('{first}/{second}/{third}', [RoutingController::class, 'thirdLevel'])->name('third');
+    // Route::get('{first}/{second}', [RoutingController::class, 'secondLevel'])->name('second');
+    // Route::get('{any}', [RoutingController::class, 'root'])->name('any');
 });
 
 ?>

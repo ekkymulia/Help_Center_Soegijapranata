@@ -85,25 +85,10 @@
                     </div> -->
 
                     <!-- item-->
-                    <a href="{{ route('second', ['pages', 'profile']) }}" class="dropdown-item">
+                    <a href="" class="dropdown-item">
                         <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
                         <span>My Account</span>
                     </a>
-
-                    <!-- <a href="{{ route('second', ['pages', 'profile']) }}" class="dropdown-item">
-                        <i class="ri-settings-4-line fs-18 align-middle me-1"></i>
-                        <span>Settings</span>
-                    </a>
-
-                    <a href="{{ route('second', ['pages', 'faq']) }}" class="dropdown-item">
-                        <i class="ri-customer-service-2-line fs-18 align-middle me-1"></i>
-                        <span>Support</span>
-                    </a>
-
-                    <a href="{{ route('second', ['auth', 'lock-screen']) }}" class="dropdown-item">
-                        <i class="ri-lock-password-line fs-18 align-middle me-1"></i>
-                        <span>Lock Screen</span>
-                    </a> -->
 
                     <!-- item-->
                     <form method="POST" action="{{ route('logout') }}">

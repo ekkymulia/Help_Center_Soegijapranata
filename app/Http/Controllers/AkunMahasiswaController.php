@@ -31,7 +31,11 @@ class AkunMahasiswaController extends Controller
      */
     public function create()
     {
-        return view("apps.detail-akun");
+        $role = Role::all();
+        return view("apps.detail-akun", [
+            'role' => $role,
+            'nt' => 'mahasiswa'
+        ]);
     }
 
     /**
@@ -44,22 +48,23 @@ class AkunMahasiswaController extends Controller
                 'name' => 'required|string',
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required|min:6',
-                'nim' => 'required|string|unique:users,nim',
+                'nim' => 'sometimes|nullable|string|unique:users,nim',
                 'level' => 'nullable|sometimes|integer',
-                'role' => 'sometimes|integer'
+                'role' => 'sometimes|integer',
             ]);
 
             $user = User::create([
                 'name' => $validatedData['name'],
                 'email' => $validatedData['email'],
                 'password' => Hash::make($validatedData['password']),
-                'level' => null,
                 'role_id' => session('role') == 1 ? $validatedData['role'] : 2,
-                'nim' => $validatedData['nim'],
+                'nim' => $validatedData['nim'] ?? null,
             ]);
 
+          
             $user->save();
 
+         
             return redirect()->route('akun-mahasiswa.index')->with('success', 'Akun Mahasiswa baru telah dibuat.');
         } catch (ValidationException $e) {
             return back()->withErrors($e->errors())->withInput();
@@ -85,7 +90,8 @@ class AkunMahasiswaController extends Controller
         $role = Role::all();
         return view("apps.detail-akun", [
             'akun' => $akun,
-            'role' => $role
+            'role' => $role,
+            'nt' => 'mahasiswa'
         ]);
     }
 

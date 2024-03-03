@@ -95,7 +95,7 @@
                                     <img src="/images/users/avatar-1.jpg" class="me-2 rounded-circle" height="36" alt="Brandon Smith">
                                     <div>
                                         <h5 class="my-0 font-15">
-                                            <a href="{{ route('second', ['pages', 'profile']) }}" class="text-reset">{{ isset($laporan) ? ucfirst( $laporan->user->name) : '' }}</a>
+                                            {{ isset($laporan) ? ucfirst( $laporan->user->name) : '' }}
                                         </h5>
                                         <p class="mt-1 mb-0 text-muted fs-12">
                                             Diajukan: {{ isset($laporan) ? $laporan->created_at : '' }}

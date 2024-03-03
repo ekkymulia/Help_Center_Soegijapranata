@@ -15,7 +15,7 @@
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="{{ route('any', 'analytics') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="">Home</a></li>
                             <li class="breadcrumb-item active">Konfigurasi AI</li>
                         </ol>
                     </div>
@@ -23,11 +23,9 @@
                 </div>
             </div>
         </div>
-        <!-- End page title -->
 
         <div class="row">
 
-            <!-- Right Sidebar -->
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
@@ -49,7 +47,6 @@
                             </div>
 
                         </div>
-                        <!-- End Left sidebar -->
 
                         <div class="page-aside-right" id="file-upload-section" style="display: none;">
                             <div class="container-fluid">
@@ -261,28 +258,7 @@
                             </div>
                             <!-- End container -->
 
-                            <!-- File preview template -->
-                            <div class="d-none" id="uploadPreviewTemplate">
-                                <div class="card mt-1 mb-0 shadow-none border">
-                                    <div class="p-2">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <img data-dz-thumbnail src="#" class="avatar-sm rounded bg-light" alt="">
-                                            </div>
-                                            <div class="col ps-0">
-                                                <a href="javascript:void(0);" class="text-muted fw-bold" data-dz-name></a>
-                                                <p class="mb-0" data-dz-size></p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <!-- Button -->
-                                                <a href="" class="btn btn-link btn-lg text-danger" data-dz-remove>
-                                                    <i class="ri-close-line"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
 
                         </div>
 
@@ -314,23 +290,6 @@
 </script>
 <script>
     $(document).ready(function () {
-
-        // $('#file-saya-asli').DataTable({
-        //     ajax: {
-        //         url: apiLink,
-        //         type: "GET",
-        //     },
-            
-        //     columns: [
-        //         { data: 'id' },
-        //         { data: 'size' },
-        //         { data: 'original_filename' },
-        //         { data: 'unique_filename' },
-        //         { data: 'is_trained' },
-        //         { data: 'trained_at' }
-        //     ],
-        // });
-        
 
         $('.create-new').click(function () {
             $('#file-upload-section').show();
@@ -435,29 +394,25 @@
                     alert("Gagal mengupload file, harap coba lagi.");
                 },
                 complete: function() {
-                    submitHandlerExecuted = false; // Reset the flag after the request is complete
+                    submitHandlerExecuted = false;
                 }
             });
         }
     });
 
     function deleteFile(id){
-        // Get the file ID from the data attribute
         var fileId = id;
 
-        // Call your delete endpoint here using fileId
         $.ajax({
             url: apiLink_delete_file + '/' + fileId,
             type: 'GET',
             success: function(response) {
-                // Remove the table row if deletion is successful
                 $(this).closest('tr').remove();
                 window.location.reload();
                 alert(response.message);
                 
             },
             error: function(xhr, status, error) {
-                // Handle error response
                 console.error(xhr.responseText);
                 alert("Gagal menghapus file, harap coba lagi.");
             }
@@ -476,7 +431,7 @@
                 fileId: fileId,
                 mode: status == 'true' ? 'untrain' : 'train'
             }),
-            contentType: 'application/json',  // Specify the content type as JSON
+            contentType: 'application/json',  
             success: function(response) {
                 console.log(response);
                 $(`#tb-${fileId} button`).removeClass().addClass(`btn btn-sm ${ status == 'false' ? 'btn-success' : 'btn-primary' }`).text(`${ status == 'false' ? 'Dipakai' : 'Aktifkan' }`);

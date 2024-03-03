@@ -30,30 +30,35 @@
                     <div class="card-body">
                         <!-- <img src="/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image"> -->
 
-                        <h4 class="mb-1 mt-2">{{ $akun->name }}</h4>
-                        <p class="text-muted">{{ $akun->role->name }}</p>
+                        <h4 class="mb-1 mt-2">{{ isset($akun) ? $akun->name : '' }}</h4>
+                        <p class="text-muted">{{ isset($akun) ? $akun->role->name : ''  }}</p>
 
                         <div class="text-start mt-2">
-                            @if($akun->nim != null)
-                            <p class="text-muted mb-2"><strong>NIM :</strong> <span class="ms-2">{{ $akun->nim }}</span></p>
+                            @if(isset($akun) ? $akun->nim != null : '')
+                            <p class="text-muted mb-2"><strong>NIM :</strong> <span class="ms-2">{{ isset($akun) ? $akun->nim : ''  }}</span></p>
                             @endif
-                            @if($akun->level != null)
-                            <p class="text-muted mb-2"><strong>Jabatan :</strong> <span class="ms-2">{{ $akun->level == 1 ? 'Pimpinan' : 'Karyawan' }}</span></p>
+                            @if(isset($akun) ? $akun->level != null : '')
+                            <p class="text-muted mb-2"><strong>Jabatan :</strong> <span class="ms-2">{{ isset($akun) ? $akun->level == 1 ? 'Pimpinan' : 'Karyawan' : '' }}</span></p>
                             @endif
                         </div>
 
-                        <form action="{{ 
-                            session('role') == 2 ? 
-                                route('akun-mahasiswa.destroy', $akun->id) : 
-                            (session('role') > 2 ? 
-                                route('akun-cs.destroy', $akun->id) : 
-                                '') 
-                        }}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button class="btn btn-danger" type="submit">Hapus Akun</button>
-                        </form>
+                        @if(isset($akun))
+                            <form action="{{ 
+                                $nt == 'mahasiswa' ? 
+                                    route('akun-mahasiswa.destroy', $akun->id) : 
+                                ($nt == 'cs' ? 
+                                    route('akun-cs.destroy', $akun->id) : 
+                                    '') 
+                            }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Hapus Akun</button>
+                            </form>
+                        @endif
 
+                        @if(!isset($akun))
+                        <h4>Tambah Akun Baru</h4>
+                        @endif
                     </div> <!-- end card-body -->
                 </div> <!-- end card-->
 
@@ -65,19 +70,19 @@
                         @if(isset($akun))
                         <form class="mt-3 text-start" method="POST" action="{{ 
                             session('role') == 2 ? 
-                                route('akun-mahasiswa.update', ['akun_mahasiswa' => $akun->id]) : 
+                                route('akun-mahasiswa.update', ['akun_mahasiswa' => isset($akun) ? $akun->id : '']) : 
                             (session('role') > 2 ? 
-                                route('akun-cs.update', ['akun_cs' => $akun->id]) : 
+                                route('akun-cs.update', ['akun_cs' => isset($akun) ? $akun->id : '']) : 
                                 '') 
                         }}">
                         @method('PUT')
                         @else
                         <form class="mt-3 text-start" method="POST" action="{{ 
-                            session('role') == 2 ? 
+                            $nt == 'mahasiswa' ? 
                                 route('akun-mahasiswa.store') : 
-                            (session('role') > 2 ? 
-                                route('akun-cs.store') : 
-                                '') 
+                                ($nt == 'cs' ? 
+                                    route('akun-cs.store') : 
+                                    '') 
                         }}">
                         @endif
                             @csrf
@@ -96,13 +101,16 @@
                                 </select>
                             </div>
                             @endif
-                            @if($akun->role_id == 2)
+                            @if($nt == 'mahasiswa')
+                            @if(isset($akun) && $akun->role_id == 2 || session('role') == 1)
                             <div class="mb-1">
                                 <label for="full-name" class="form-label text-center">NIM:</label>
                                 <input type="text" class="form-control" name="nim" id="full-name" value="{{ isset($akun) ? $akun->nim : '' }}">
                             </div>
                             @endif
-                            @if($akun->role_id > 2)
+                            @endif
+                            @if($nt == 'cs')
+                            @if(isset($akun) && $akun->role_id > 2 || session('role') == 1)
                             <div class="mb-1">
                                 <label for="full-name" class="form-label text-center">Jabatan:</label>
                                 <select name="level" class="form-control form-select" id="">
@@ -111,6 +119,7 @@
                                     <option value="2" {{ isset($akun) && $akun->level == 2 ? 'selected' : '' }}>Karyawan</option>
                                 </select>
                             </div>
+                            @endif
                             @endif
                             <div class="mb-1">
                                 <label for="email" class="form-label text-center">Email:</label>

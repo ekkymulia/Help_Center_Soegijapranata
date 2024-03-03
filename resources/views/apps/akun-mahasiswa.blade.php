@@ -14,16 +14,14 @@
 @endsection
 
 @section('content')
-<!-- Start Content-->
 <div class="container-fluid">
 
-    <!-- start page title -->
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('any', 'analytics') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="">Home</a></li>
                         <li class="breadcrumb-item active">Mahasiswa</li>
                     </ol>
                 </div>
@@ -31,7 +29,6 @@
             </div>
         </div>
     </div>
-    <!-- end page title -->
 
     <div class="container-fluid">
         <div class="row">
@@ -60,6 +57,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+                        <a href="{{ route('akun-mahasiswa.create') }}" class="btn btn-primary btn-sm mb-3">Tambah Akun</a>
                         <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                                 <tr>
@@ -80,78 +78,13 @@
                                 @endforeach                              
                             </tbody>
                         </table>
-                    </div> <!-- end card body-->
-                </div> <!-- end card -->
-            </div><!-- end col-->
-        </div> <!-- end row-->
-
-        <!--  successfully modal  -->
-        <div id="success-btn" class="modal fade" tabindex="-1" aria-labelledby="success-btnLabel" aria-hidden="true"
-            data-bs-scroll="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="text-center">
-                            <i class="bx bx-check-circle display-1 text-success"></i>
-                            <h4 class="mt-3">Laporan baru berhasil dibuat</h4>
-                        </div>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-
-        <!--  Extra Large modal example -->
-        <div class="modal fade new-customer" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+                    </div> 
+                </div> 
+            </div>
+        </div> 
     </div>
+</div> 
 
-</div> <!-- container -->
-
-
-<!-- Compose Modal -->
-<div id="compose-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="compose-header-modalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header modal-colored-header bg-primary">
-                <h4 class="modal-title" id="compose-header-modalLabel">New Message</h4>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <div class="p-1">
-                <div class="modal-body px-3 pt-3 pb-0">
-                    <form>
-                        <div class="mb-2">
-                            <label for="msgto" class="form-label">To</label>
-                            <input type="text" id="msgto" class="form-control" placeholder="Example@email.com">
-                        </div>
-                        <div class="mb-2">
-                            <label for="mailsubject" class="form-label">Subject</label>
-                            <input type="text" id="mailsubject" class="form-control" placeholder="Your subject">
-                        </div>
-                        <div class="write-mdg-box mb-3">
-                            <label class="form-label">Message</label>
-                            <div id="snow-editor" style="height: 200px;">
-                                <h3>This is a simple editable area.</h3>
-                                <p>
-                                    End of simple area
-                                </p>
-                            </div><!-- end Snow-editor-->
-                        </div>
-                    </form>
-                </div>
-                <div class="px-3 pb-3">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><i
-                            class="ri-send-plane-2-line me-1"></i> Send Message</button>
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 @endsection
 
 @section('script')

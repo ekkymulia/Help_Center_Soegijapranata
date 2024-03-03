@@ -17,10 +17,10 @@
 
                 <!-- Logo -->
                 <div class="auth-brand text-center text-lg-start">
-                    <a href="{{ route('any', 'analytics') }}" class="logo-dark">
+                    <a href="" class="logo-dark">
                         <span><img src="/images/logo-dark.png" alt="dark logo" height="22"></span>
                     </a>
-                    <a href="{{ route('any', 'analytics') }}" class="logo-light">
+                    <a href="" class="logo-light">
                         <span><img src="/images/logo.png" alt="logo" height="22"></span>
                     </a>
                 </div>
@@ -45,7 +45,7 @@
                             <input class="form-control" type="email" id="emailaddress" required="" name="email" placeholder="Enter your email" value="attex@coderthemes.com">
                         </div>
                         <div class="mb-3">
-                            <a href="{{ route('second', ['auth', 'recoverpw']) }}" class="text-muted float-end"><small>Forgot your password?</small></a>
+                            <!-- <a href="" class="text-muted float-end"><small>Forgot your password?</small></a> -->
                             <label for="password" class="form-label">Password</label>
                             <input class="form-control" type="password" required="" id="password" name="password" value="password" placeholder="Enter your password">
                         </div>
@@ -63,17 +63,18 @@
                     <!-- end form-->
                 </div>
 
-                <!-- Footer-->
+                <!-- Footer
                 <footer class="footer footer-alt">
-                    <p class="text-muted">Don't have an account? <a href="{{ route('second', ['auth', 'register-2']) }}" class="text-muted ms-1"><b>Sign Up</b></a></p>
-                </footer>
+                    <p class="text-muted">Don't have an account? <a href="" class="text-muted ms-1"><b>Sign Up</b></a></p>
+                </footer> -->
 
             </div> <!-- end .card-body -->
         </div>
         <!-- end auth-fluid-form-box-->
 
         <!-- Auth fluid right content -->
-        <div class="auth-fluid-right text-center" style="background-image: url('/images/bg-auth.jpg');">
+        <div class="auth-fluid-right text-center" style="background-image: url('/images/bg-auth.jpg'); background-repeat: no-repeat;
+    background-size: cover;">
         
         </div>
         <!-- end Auth fluid right content -->
