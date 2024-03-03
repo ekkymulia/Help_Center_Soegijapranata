@@ -6,6 +6,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailAkunController;
 use App\Http\Controllers\KonfigurasiAiController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoutingController;
@@ -31,7 +32,9 @@ use App\Http\Controllers\RoutingController;
 
 require __DIR__ . '/auth.php';
 
-Route::group(['prefix' => '/', 'middleware'=>'auth'], function () {
+Route::resource("/",LandingController::class);
+
+Route::group(['prefix' => 'app', 'middleware'=>'auth'], function () {
     Route::resource("akun-cs", AkunCsController::class);
     Route::resource("akun-mahasiswa", AkunMahasiswaController::class);
     Route::resource("detail-akun", DetailAkunController::class);
