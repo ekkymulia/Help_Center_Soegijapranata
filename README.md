@@ -66,3 +66,5 @@
 ## notes
 untuk project ini tidak disarankan memakai php artisan migrate, karena db:seed tidak sempat dikonfigurasi
 lebih cepat mengimport database
+
+Jika terdapat error saat penginstalan dependency composer install, boleh mencoba menghapus file composer.lock kemudian mencoba composer install kembali. Jika tetap tidak bisa, baru menyamakan versi php.
