@@ -42,7 +42,7 @@
                         @csrf
                         <div class="mb-3">
                             <label for="emailaddress" class="form-label">Email address</label>
-                            <input class="form-control" type="email" id="emailaddress" required="" name="email" placeholder="Enter your email" value="attex@coderthemes.com">
+                            <input class="form-control" type="email" id="emailaddress" required="" name="email" placeholder="Enter your email" value="">
                         </div>
                         <div class="mb-3">
                             <!-- <a href="" class="text-muted float-end"><small>Forgot your password?</small></a> -->

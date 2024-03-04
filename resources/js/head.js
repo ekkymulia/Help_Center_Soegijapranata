@@ -68,7 +68,7 @@ window.moment = moment;
     config['sidenav']['user'] = sidebarUser !== null ? true : defaultConfig.sidenav.user;
 
     var menuColor = html.getAttribute('data-menu-color');
-    config['menu']['color'] = menuColor !== null ? menuColor : defaultConfig.menu.color;
+    config['menu']['color'] = 'light';
 
     window.defaultConfig = JSON.parse(JSON.stringify(config));
 

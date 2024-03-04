@@ -388,10 +388,12 @@
                 success: function(response) {
                     console.log(response);
                     alert("Berhasil menambahkan file parameter!");
+                    location.reload();
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
                     alert("Gagal mengupload file, harap coba lagi.");
+                    location.reload();
                 },
                 complete: function() {
                     submitHandlerExecuted = false;
@@ -410,11 +412,12 @@
                 $(this).closest('tr').remove();
                 window.location.reload();
                 alert(response.message);
-                
+                location.reload();
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);
                 alert("Gagal menghapus file, harap coba lagi.");
+                location.reload();
             }
         });
     };
@@ -459,7 +462,7 @@
                
                 $('#training').html(' <i class="ri-file-settings-line"></i> Mulai Training ');
                 $('#training').prop('disabled', false);
-
+                location.reload();
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);
@@ -467,7 +470,7 @@
                 $('#training').prop('disabled', false);
                 $('#training').html(' <i class="ri-file-settings-line"></i> Mulai Training ');
 
-
+                location.reload();
             }
         });
         

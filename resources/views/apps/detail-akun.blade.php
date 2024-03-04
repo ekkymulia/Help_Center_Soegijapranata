@@ -69,10 +69,10 @@
                     <div class="card-body text-center">
                         @if(isset($akun))
                         <form class="mt-3 text-start" method="POST" action="{{ 
-                            session('role') == 2 ? 
+                            isset($nt) && $nt == 'mahasiswa' ? 
                                 route('akun-mahasiswa.update', ['akun_mahasiswa' => isset($akun) ? $akun->id : '']) : 
-                            (session('role') > 2 ? 
-                                route('akun-cs.update', ['akun_cs' => isset($akun) ? $akun->id : '']) : 
+                            (isset($nt) && $nt == 'cs' ? 
+                                route('akun-cs.update', ['akun_c' => isset($akun) ? $akun->id : '']) : 
                                 '') 
                         }}">
                         @method('PUT')

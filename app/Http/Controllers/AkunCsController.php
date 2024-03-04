@@ -52,7 +52,7 @@ class AkunCsController extends Controller
                 'name' => 'required|string',
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required|min:6',
-                'nim' => 'required|string|unique:users,nim',
+                'nim' => 'sometimes|string|unique:users,nim',
                 'level' => 'nullable|sometimes|integer',
                 'role' => 'sometimes|integer'
             ]);
@@ -65,9 +65,9 @@ class AkunCsController extends Controller
                 'name' => $validatedData['name'],
                 'email' => $validatedData['email'],
                 'password' => Hash::make($validatedData['password']),
-                'level' => null,
+                'level' => $validatedData['level'] ?? null,
                 'role_id' => $validatedData['role'],
-                'nim' => $validatedData['nim'],
+                'nim' => $validatedData['nim'] ?? null,
             ]);
 
             $user->save();
